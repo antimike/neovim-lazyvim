@@ -1,6 +1,5 @@
 return {
   "andersevenrud/nordic.nvim",
-  lazy = true,
   config = function()
     -- The table used in this example contains the default settings.
     -- Modify or remove these to your liking (this also applies to alternatives below):

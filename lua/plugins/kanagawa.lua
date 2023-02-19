@@ -1,6 +1,5 @@
 return {
   "rebelot/kanagawa.nvim",
-  lazy = true,
   opts = {
     undercurl = true, -- enable undercurls
     commentStyle = { italic = true },
@@ -19,4 +18,5 @@ return {
     overrides = {},
     theme = "default", -- Load "default" theme or the experimental "light" theme
   },
+  priority = 9000,
 }

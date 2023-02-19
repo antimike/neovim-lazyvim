@@ -1,4 +1,10 @@
 return {
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "kanagawa",
+    },
+  },
   "sjl/badwolf",
   -- TreeSitter colorschemes
   {
@@ -94,5 +100,8 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
+  },
+  {
+    "tanvirtin/monokai.nvim",
   },
 }

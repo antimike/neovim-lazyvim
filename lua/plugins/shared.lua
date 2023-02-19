@@ -1,9 +1,9 @@
 return {
-  {
-    "kyazdani42/nvim-web-devicons",
-    event = "BufEnter",
-    name = "devicons-original",
-  },
+  -- {
+  --   "kyazdani42/nvim-web-devicons",
+  --   event = "BufEnter",
+  --   name = "devicons-original",
+  -- },
 
   -- SQLite: required for frecency (Telescope plugin)
   {

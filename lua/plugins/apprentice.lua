@@ -1,6 +1,5 @@
 return {
   "adisen99/apprentice.nvim",
-  lazy = true,
   dependencies = {
     "Lush",
   },
