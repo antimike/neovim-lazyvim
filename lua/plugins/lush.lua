@@ -1,4 +1,4 @@
 return {
-  name = "Lush",
   "rktjmp/lush.nvim",
+  lazy = true,
 }
