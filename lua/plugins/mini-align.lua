@@ -2,6 +2,9 @@ return {
   "echasnovski/mini.align",
   version = false,
   keys = { { "ga", desc = "Align text" }, { "gA", desc = "Align text with preview" } },
+  config = function(opts)
+    require("mini.align").setup(opts)
+  end,
   opts = {
     -- Module mappings. Use `''` (empty string) to disable one.
     mappings = {
