@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "jubnzv/mdeval.nvim",
   ft = {
     "org",
