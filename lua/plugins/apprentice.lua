@@ -1,7 +1,7 @@
 return {
   "adisen99/apprentice.nvim",
   dependencies = {
-    "Lush",
+    "rktjmp/lush.nvim",
   },
   config = function()
     require("lush")(require("apprentice").setup({

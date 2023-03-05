@@ -1,7 +1,7 @@
 return {
   "rebelot/kanagawa.nvim",
   opts = {
-    undercurl = true, -- enable undercurls
+    undercurl = false, -- enable undercurls
     commentStyle = { italic = true },
     functionStyle = {},
     keywordStyle = { italic = true },
