@@ -3,3 +3,10 @@
 -- Add any additional options here
 vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.cmd([[
+set list
+set listchars=tab:>-
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+]])
