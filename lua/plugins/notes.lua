@@ -20,6 +20,7 @@ return {
     "renerocksai/calendar-vim",
   },
   {
+    enabled = false,
     "oberblastmeister/neuron.nvim",
     opts = {
       virtual_titles = true,

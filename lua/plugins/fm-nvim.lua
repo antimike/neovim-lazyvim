@@ -12,7 +12,11 @@ return {
 
     -- See `Q&A` for more info
     on_close = {},
-    on_open = {},
+    on_open = {
+      function()
+        vim.cmd([[cd %:p:h]])
+      end,
+    },
 
     -- UI Options
     ui = {

@@ -1,10 +1,4 @@
 return {
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "kanagawa",
-    },
-  },
   "sjl/badwolf",
   -- TreeSitter colorschemes
   {

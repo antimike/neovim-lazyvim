@@ -13,3 +13,8 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     vim.opt.foldlevel = 5
   end,
 })
+
+-- Suggested by the author of mkdnflow: auto-write markdown files
+vim.api.nvim_create_autocmd("FileType", { pattern = "markdown", command = "set awa" })
+-- Use the following if your buffer is set to become hidden
+--vim.api.nvim_create_autocmd("BufLeave", {pattern = "*.md", command = "silent! wall"})

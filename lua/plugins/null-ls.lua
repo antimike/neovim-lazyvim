@@ -28,9 +28,9 @@ return {
           extra_args = { "--preview" },
         }),
         nls.builtins.formatting.reorder_python_imports,
-        -- nls.builtins.formatting.autopep8.with({
-        --   extra_args = { "--max-line-length=79" },
-        -- }),
+        nls.builtins.formatting.autopep8.with({
+          extra_args = { "--max-line-length=79" },
+        }),
         docfmt,
         nls.builtins.formatting.beautysh,
         nls.builtins.formatting.shfmt,

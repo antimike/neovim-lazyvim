@@ -10,3 +10,6 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 ]])
+vim.cmd([[
+let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+]])

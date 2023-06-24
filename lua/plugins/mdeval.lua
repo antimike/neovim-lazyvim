@@ -1,5 +1,5 @@
 return {
-  enabled = false,
+  -- enabled = false,
   "jubnzv/mdeval.nvim",
   ft = {
     "org",
@@ -7,28 +7,7 @@ return {
     "markdown",
     "vimwiki",
     "rmd",
-  },
-  opts = {
-    require_confirmation = true,
-    -- Change code blocks evaluation options.
-    eval_options = {
-      -- Set custom configuration for C++
-      cpp = {
-        command = { "clang++", "-std=c++20", "-O0" },
-        default_header = [[
-    #include <iostream>
-    #include <vector>
-    using namespace std;
-      ]],
-      },
-      -- Add new configuration for Racket
-      racket = {
-        command = { "racket" }, -- Command to run interpreter
-        language_code = "racket", -- Markdown language code
-        exec_type = "interpreted", -- compiled or interpreted
-        extension = "rkt", -- File extension for temporary files
-      },
-    },
+    "telekasten",
   },
   config = function(opts)
     vim.g.markdown_fenced_languages = {
@@ -36,16 +15,44 @@ return {
       "cpp",
       "lua",
       "bash",
-      "zsh",
+      -- "zsh",
       "haskell",
       "yaml",
       "json",
       "sh",
-      "js",
-      "ts",
-      "conf",
+      "javascript",
+      "typescript",
+      -- "conf",
       "toml",
+      "perl",
+      "vim",
+      -- "jq",
+      "racket",
+      "erlang",
+      "tcl",
+      "expect",
     }
-    require("mdeval").setup(opts)
+    require("mdeval").setup({
+      require_confirmation = true,
+      -- Change code blocks evaluation options.
+      eval_options = {
+        -- Set custom configuration for C++
+        cpp = {
+          command = { "clang++", "-std=c++20", "-O0" },
+          default_header = [[
+    #include <iostream>
+    #include <vector>
+    using namespace std;
+      ]],
+        },
+        -- Add new configuration for Racket
+        racket = {
+          command = { "racket" }, -- Command to run interpreter
+          language_code = "racket", -- Markdown language code
+          exec_type = "interpreted", -- compiled or interpreted
+          extension = "rkt", -- File extension for temporary files
+        },
+      },
+    })
   end,
 }

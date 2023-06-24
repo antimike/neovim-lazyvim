@@ -63,7 +63,7 @@ register_keymap({
 }, { prefix = "<leader>" })
 -- todo: add mapping to convert dot graph to boxart using `graph-easy`
 register_keymap({
-  t = { ":tig<cr>", "tig" },
+  t = { ":Tig<cr>", "Tig" },
   e = {
     ":cd %:p:h<cr>:Neotree action=show toggle=true source=git_status position=float reveal_force_cwd=true %<cr>",
     "explore status (neotree)",
@@ -144,7 +144,70 @@ if MiniMap ~= nil then
   }, { prefix = "<leader>c" })
 end
 register_keymap({
-  C = { require("cmp").mapping.complete, "Trigger completion" },
+  ["<M-c>"] = { require("cmp").mapping.complete(), "Trigger completion" },
+}, { mode = "i" })
+
+--- Enable or disable autocomplete either globally or in the current buffer.
+---@param mode boolean
+---@param global boolean
+local function set_auto_comp(mode, global)
+  local avail, cmp = pcall(require, "cmp")
+  if not avail then
+    return
+  end
+  local setup = cmp.setup
+  if not global then
+    setup = setup.buffer
+  end
+  if mode then
+    setup({
+      completion = {
+        autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+      },
+    })
+  else
+    setup({
+      completion = {
+        autocomplete = false,
+      },
+    })
+  end
+end
+
+register_keymap({
+  C = {
+    name = "Completion",
+    e = {
+      function()
+        require("luasnip.loaders").edit_snippet_files()
+      end,
+      "Edit snippet file(s)",
+    },
+    b = {
+      function()
+        set_auto_comp(false, true)
+      end,
+      "Disable autocompletion (buffer)",
+    },
+    B = {
+      function()
+        set_auto_comp(true, true)
+      end,
+      "Enable autocompletion (buffer)",
+    },
+    g = {
+      function()
+        set_auto_comp(false, true)
+      end,
+      "Disable autocompletion (global)",
+    },
+    G = {
+      function()
+        set_auto_comp(true, true)
+      end,
+      "Enable autocompletion (global)",
+    },
+  },
 }, { prefix = "<leader>" })
 register_keymap({
   S = {
@@ -180,7 +243,7 @@ register_keymap({
     name = "Telekasten",
     t = {
       function()
-        require("telekasten").godo_today()
+        require("telekasten").goto_today()
       end,
       "Goto today's note",
     },
@@ -322,4 +385,30 @@ register_keymap({
     L = { ":Neoconf lsp<cr>", "Merged LSP config" },
     ["<cr>"] = { ":Neoconf<cr>", "Open UI to select config file" },
   },
+  J = {
+    function()
+      require("treesj").join()
+    end,
+    "Join multiline code construct",
+  },
+  S = {
+    function()
+      require("treesj").split()
+    end,
+    "Split multiline code construct",
+  },
 }, { prefix = "g" })
+register_keymap({
+  Z = {
+    function()
+      require("zen-mode").toggle()
+    end,
+    "Toggle Zen mode",
+  },
+}, { filetype = { "md", "markdown", "telekasten", "pandoc", "rmd", "rst" } })
+register_keymap({
+  gh = {
+    ":cd %:p:h<cr>",
+    "cd to current file's parent directory",
+  },
+})
